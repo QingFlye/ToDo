@@ -1,0 +1,74 @@
+@charset "utf-8";
+.b-shadow{-moz-box-shadow:0 0 4px rgba(0,0,0,.5);-webkit-box-shadow:0 0 4px rgba(0,0,0,.5);box-shadow:0 0 4px rgba(0,0,0,.5)}
+.b-btn{background:linear-gradient(#fafafa,#f2f2f2);border:1px solid #d9d9d9;border-radius:2px;color:#333;cursor:pointer;display:inline-block;font-size:14px;height:28px;line-height:28px;padding:0 12px;text-align:center;text-decoration:none;text-shadow:0 1px 0 rgba(255,255,255,.5);white-space:nowrap;margin-left:10px}
+.b-btn:hover{background:linear-gradient(#fff,#d9d9d9);border:1px solid #ccc;box-shadow:0 1px 0 #fff inset,0 1px 0 rgba(255,255,255,.05)}
+.button{padding-left:20px;width:220px;height:30px;line-height:30px;background:url(img/header-bg.jpg) no-repeat;color:#fff;border-top:1px solid #666;position:absolute;bottom:0;left:0;cursor:pointer}
+.btn{float:right;text-decoration:none;margin-right:20px;width:25px;text-indent:-9999px;overflow:hidden}
+.btn i{float:right;width:25px;line-height:25px;text-indent:0;font-weight:400;font-size:20px}
+.category{left:0;width:240px;text-indent:2em}
+.category h3,.category dd,.category dt{text-indent:2em;padding:5px 0}
+.category h3.active,.category dd.active,.category dt.active{background:#0089a5}
+.category h3,.category h4{font-size:14px;text-indent:1em}
+.category dt,.category dd{width:240px;font-size:14px;line-height:20px;position:relative;cursor:pointer}
+.category dd{text-indent:3em;font-size:12px;display:none}
+.category dd i{font-size:14px;text-align:center}
+.category dl.active dd{display:block}
+.category .btn{display:none}
+.category dd:hover .btn,.category dt:hover .btn{display:block}
+.category .icon-chahao{color:#fff;position:absolute;right:0;top:3px}
+.category button span{display:inline-block;margin:2px 0 0 2px}
+.list{left:241px;width:240px;padding-bottom:20px}
+nav{width:200px;height:36px;padding:5px 20px;line-height:36px;font-size:14px}
+.list dt,.list dd{width:220px;height:28px;line-height:28px}
+.list dd.active{background:#0089a5}
+.list dt{width:220px;padding-left:20px}
+.list dd{width:210px;padding-left:30px}
+nav span{display:inline-block;width:50px;margin:0 5px;text-align:center;cursor:pointer}
+nav span.active{background:linear-gradient(#64d8f2,#0089a5);border:1px solid #055f71;box-shadow:0 1px 0 rgba(255,255,255,.08)inset,0 1px 0 rgba(255,255,255,.3);color:#fff;border-radius:15px}
+article{min-width:500px;left:482px;top:62px;right:0}
+article h1{height:38px;padding-top:10px;text-indent:2em;font-weight:400}
+article input,article textarea{background:none repeat scroll 0 0 #fcfcfc;border:1px solid #ccc;border-radius:3px;box-shadow:0 1px 2px rgba(0,0,0,.05)inset;color:#777;font-size:16px;display:inline-block;height:26px;padding:0 10px;width:280px}
+article h2,article section{font-size:14px;font-weight:400;padding:10px 35px}
+article textarea{width:760px;padding:10px 35px;margin-left:35px;margin-top:10px;height:400px}
+article div .button{width:100px;text-align:center;margin-left:35px}
+article .form-error{color:red;margin-left:30px;font-size:14px}
+.dialog{z-index:9999;left:50%;margin:-100px 0 0 -160px;position:fixed;top:50%;width:320px;font-size:16px;padding:20px 30px;border-radius:8px;background:#fff}
+.dialog.hidden{display:none}
+.dialog .close-btn{float:right;text-decoration:none;margin-right:20px;width:25px;text-indent:-9999px;overflow:hidden}
+.dialog .close-btn i{width:25px;line-height:25px;text-indent:0;font-weight:400;font-size:14px;position:absolute;top:5px;right:5px}
+.dialog .close-btn:hover{color:#8c7e7e}
+.dialog .dialog-title{border-bottom:1px solid #ededed;height:36px;line-height:36px;margin-bottom:10px;position:relative}
+.dialog label{float:left;padding-bottom:7px;vertical-align:top;width:100px;display:inline-block;line-height:1.4em;color:#8c7e7e}
+.dialog input{background:none repeat scroll 0 0 #fcfcfc;border:1px solid #ccc;border-radius:3px;box-shadow:0 1px 2px rgba(0,0,0,.05)inset;color:#777;font-size:16px;display:inline-block;height:36px;padding:0 10px;width:280px}
+.dialog .dialog-submit{padding-top:10px;text-align:right}
+.dialog .dialog-submit .confirm{background:linear-gradient(#64d8f2,#0089a5);border:1px solid #055f71;box-shadow:0 1px 0 rgba(255,255,255,.08)inset,0 1px 0 rgba(255,255,255,.3);color:#fff;text-shadow:0 -1px 0 rgba(0,0,0,.1)}
+.dialog .error-msg{display:block;height:20px;line-height:20px;color:red;margin-bottom:10px}
+.mask{z-index:9998;position:fixed;top:0;left:0;width:100%;height:100%;background:#000;opacity:.7;filter:alpha(opacity=70)}
+.mask.hidden{display:none}
+body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,ul,ol,li,pre,form,fieldset,legend,button,input,textarea,th,td{margin:0;padding:0}
+body,button,input,select,textarea{font-size:12px}
+ul,ol{list-style:none}
+li{list-style-type:none}
+fieldset,img{border:0}
+em,cite{font-style:normal}
+button,input,select,textarea,label{outline:medium none;vertical-align:middle}
+a{cursor:pointer;color:#000}
+button{cursor:pointer;font-size:12px}
+table{border-collapse:collapse;border:none}
+html{font-family:"Microsoft YaHei",SimSun,Arial,Helvetica,sans-serif;font-size:12px}
+textarea{word-wrap:break-word;resize:none}
+.clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+.clearfix{zoom:1}
+@font-face{font-family:iconfont;src:url(font/iconfont.eot);src:url(font/iconfont.eot?#iefix) format('embedded-opentype'),url(font/iconfont.woff) format('woff'),url(font/iconfont.ttf) format('truetype'),url(font/iconfont.svg#iconfont) format('svg')}
+.iconfont{font-family:iconfont!important;font-size:16px;font-style:normal;-webkit-font-smoothing:antialiased;-webkit-text-stroke-width:.2px;-moz-osx-font-smoothing:grayscale}
+.icon-bianji:before{content:"\e600"}
+.icon-iconfontwenjianjiadakai:before{content:"\e601"}
+.icon-wancheng:before{content:"\e602"}
+.icon-jiahao:before{content:"\e603"}
+.icon-11:before{content:"\e604"}
+.icon-chahao:before{content:"\e605"}
+html,body{overflow:hidden;height:100%}
+body{position:relative;overflow:auto}
+header{height:60px;color:#fff;font-size:24px;line-height:60px;text-indent:2em;background:url(img/header-bg.jpg) repeat-x;-moz-box-shadow:0 0 4px rgba(0,0,0,.5);-webkit-box-shadow:0 0 4px rgba(0,0,0,.5);box-shadow:0 0 4px rgba(0,0,0,.5)}
+aside{top:62px}
+aside.category,aside.list,article{position:absolute;bottom:0;overflow-x:hidden}
