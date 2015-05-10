@@ -2,7 +2,7 @@
 .b-shadow{-moz-box-shadow:0 0 4px rgba(0,0,0,.5);-webkit-box-shadow:0 0 4px rgba(0,0,0,.5);box-shadow:0 0 4px rgba(0,0,0,.5)}
 .b-btn{background:linear-gradient(#fafafa,#f2f2f2);border:1px solid #d9d9d9;border-radius:2px;color:#333;cursor:pointer;display:inline-block;font-size:14px;height:28px;line-height:28px;padding:0 12px;text-align:center;text-decoration:none;text-shadow:0 1px 0 rgba(255,255,255,.5);white-space:nowrap;margin-left:10px}
 .b-btn:hover{background:linear-gradient(#fff,#d9d9d9);border:1px solid #ccc;box-shadow:0 1px 0 #fff inset,0 1px 0 rgba(255,255,255,.05)}
-.button{padding-left:20px;width:220px;height:30px;line-height:30px;background:url(img/header-bg.jpg) no-repeat;color:#fff;border-top:1px solid #666;position:absolute;bottom:0;left:0;cursor:pointer}
+.button{padding-left:20px;width:220px;height:30px;line-height:30px;background:#64d8f2;background:linear-gradient(#64d8f2,#0089a5);color:#fff;border-top:1px solid #666;position:absolute;bottom:0;left:0;cursor:pointer}
 .btn{float:right;text-decoration:none;margin-right:20px;width:25px;text-indent:-9999px;overflow:hidden}
 .btn i{float:right;width:25px;line-height:25px;text-indent:0;font-weight:400;font-size:20px}
 .category{left:0;width:240px;text-indent:2em}
@@ -24,13 +24,13 @@ nav{width:200px;height:36px;padding:5px 20px;line-height:36px;font-size:14px}
 .list dt{width:220px;padding-left:20px}
 .list dd{width:210px;padding-left:30px}
 nav span{display:inline-block;width:50px;margin:0 5px;text-align:center;cursor:pointer}
-nav span.active{background:linear-gradient(#64d8f2,#0089a5);border:1px solid #055f71;box-shadow:0 1px 0 rgba(255,255,255,.08)inset,0 1px 0 rgba(255,255,255,.3);color:#fff;border-radius:15px}
+nav span.active{background:#0089a5;border:1px solid #055f71;box-shadow:0 1px 0 rgba(255,255,255,.08)inset,0 1px 0 rgba(255,255,255,.3);color:#fff;border-radius:15px}
 article{min-width:500px;left:482px;top:62px;right:0}
 article h1{height:38px;padding-top:10px;text-indent:2em;font-weight:400}
 article input,article textarea{background:none repeat scroll 0 0 #fcfcfc;border:1px solid #ccc;border-radius:3px;box-shadow:0 1px 2px rgba(0,0,0,.05)inset;color:#777;font-size:16px;display:inline-block;height:26px;padding:0 10px;width:280px}
 article h2,article section{font-size:14px;font-weight:400;padding:10px 35px}
 article textarea{width:760px;padding:10px 35px;margin-left:35px;margin-top:10px;height:400px}
-article div .button{width:100px;text-align:center;margin-left:35px;position:static}
+article div .button{border:1px solid #000;width:100px;text-align:center;margin-left:35px;position:static}
 article .form-error{color:red;margin-left:30px;font-size:14px}
 .dialog{z-index:9999;left:50%;margin:-100px 0 0 -160px;position:fixed;top:50%;width:320px;font-size:16px;padding:20px 30px;border-radius:8px;background:#fff}
 .dialog.hidden{display:none}
@@ -41,7 +41,7 @@ article .form-error{color:red;margin-left:30px;font-size:14px}
 .dialog label{float:left;padding-bottom:7px;vertical-align:top;width:100px;display:inline-block;line-height:1.4em;color:#8c7e7e}
 .dialog input{background:none repeat scroll 0 0 #fcfcfc;border:1px solid #ccc;border-radius:3px;box-shadow:0 1px 2px rgba(0,0,0,.05)inset;color:#777;font-size:16px;display:inline-block;height:36px;padding:0 10px;width:280px}
 .dialog .dialog-submit{padding-top:10px;text-align:right}
-.dialog .dialog-submit .confirm{background:linear-gradient(#64d8f2,#0089a5);border:1px solid #055f71;box-shadow:0 1px 0 rgba(255,255,255,.08)inset,0 1px 0 rgba(255,255,255,.3);color:#fff;text-shadow:0 -1px 0 rgba(0,0,0,.1)}
+.dialog .dialog-submit .confirm{background:#64d8f2;background:linear-gradient(#64d8f2,#0089a5);border:1px solid #055f71;box-shadow:0 1px 0 rgba(255,255,255,.08)inset,0 1px 0 rgba(255,255,255,.3);color:#fff;text-shadow:0 -1px 0 rgba(0,0,0,.1)}
 .dialog .error-msg{display:block;height:20px;line-height:20px;color:red;margin-bottom:10px}
 .mask{z-index:9998;position:fixed;top:0;left:0;width:100%;height:100%;background:#000;opacity:.7;filter:alpha(opacity=70)}
 .mask.hidden{display:none}
@@ -67,8 +67,8 @@ textarea{word-wrap:break-word;resize:none}
 .icon-jiahao:before{content:"\e603"}
 .icon-11:before{content:"\e604"}
 .icon-chahao:before{content:"\e605"}
-html,body{overflow:hidden;height:100%}
-body{position:relative;overflow:auto}
-header{height:60px;color:#fff;font-size:24px;line-height:60px;text-indent:2em;background:url(img/header-bg.jpg) repeat-x;-moz-box-shadow:0 0 4px rgba(0,0,0,.5);-webkit-box-shadow:0 0 4px rgba(0,0,0,.5);box-shadow:0 0 4px rgba(0,0,0,.5)}
+html{height:100%;overflow:auto}
+body{position:relative;height:100%}
+header{height:60px;color:#fff;font-size:24px;line-height:60px;text-indent:2em;background:url(img/header-bg.jpg) repeat-x #0089a5;-moz-box-shadow:0 0 4px rgba(0,0,0,.5);-webkit-box-shadow:0 0 4px rgba(0,0,0,.5);box-shadow:0 0 4px rgba(0,0,0,.5)}
 aside{top:62px}
 aside.category,aside.list,article{position:absolute;bottom:0;overflow-x:hidden}

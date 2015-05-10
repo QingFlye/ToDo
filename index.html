@@ -67,7 +67,25 @@
 <script>
     require.config({
         'baseUrl': 'asset',
-        'urlArgs': '20150417'
+        'packages': [
+            {
+                'name': 'eform-lang',
+                'location': '../dep/eform-lang/0.1.2/asset',
+                'main': 'main'
+            },
+            {
+                'name': 'eform-dom',
+                'location': '../dep/eform-dom/0.0.1/asset',
+                'main': 'main'
+            },
+            {
+                'name': 'etpl',
+                'location': '../dep/etpl/3.0.0/asset',
+                'main': 'main'
+            }
+        ],
+        'urlArgs': '20150417',
+        'paths': {}
     });
 </script>
 <script>
