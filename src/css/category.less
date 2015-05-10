@@ -1,0 +1,59 @@
+/*左列任务分类*/
+.category {
+    left: 0;
+    width: 240px;
+    text-indent: 2em;
+    padding:5px 0;
+    h3, dd, dt {
+        text-indent: 2em;
+        padding: 5px 0;
+        &.active {
+            background: #0089A5;
+        }
+    }
+    h3,h4 {
+        font-size: 14px;
+        text-indent: 1em;
+    }
+
+    dt, dd {
+        width: 240px;
+        font-size: 14px;
+        line-height: 20px;
+        position: relative;
+        cursor: pointer;
+    }
+    dd {
+        text-indent: 3em;
+        font-size: 12px;
+        display: none;
+        i {
+            font-size: 14px;
+            text-align: center;
+        }
+    }
+}
+
+.category dl.active dd {
+    display: block;
+}
+
+.category .btn {
+    display: none;
+}
+
+.category dd:hover .btn, .category dt:hover .btn {
+    display: block;
+}
+
+.category .icon-chahao {
+    color: #ffffff;
+    position: absolute;
+    right: 0;
+    top: 3px;
+}
+
+.category button span {
+    display: inline-block;
+    margin: 2px 0 0 2px;
+}

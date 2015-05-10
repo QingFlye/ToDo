@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <title>ife task之我的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <link rel="stylesheet" href="src/css/index.less"/>
+    <script src="src/html5.js"></script>
+</head>
+<body>
+<!--header-->
+<header>GTD Tools（青青flye）</header>
+<!--左：分类列表-->
+<aside class="category b-shadow">
+    <div id="category-items"></div>
+    <span class="button" id="category-add"><i class="iconfont icon-jiahao"></i> 新增分类</span>
+</aside>
+<main class="clearfix">
+    <!--中间：任务列表-->
+    <aside class="list b-shadow">
+        <nav class="b-shadow" id="list-type">
+            <span class="active" data-role="all">所有</span>
+            <span data-role="finished">已完成</span>
+            <span data-role="unfinished">未完成</span>
+        </nav>
+        <dl class="b-shadow" id="list-items">
+        </dl>
+        <span class="button" id="list-add">
+            <i class="iconfont icon-jiahao"></i> 新增任务</span>
+    </aside>
+    <!--右侧：详情信息-->
+    <article id="detail">
+    </article>
+</main>
+
+<!--遮罩层-->
+<div class="mask hidden" id="mask"></div>
+
+<!--新增/编辑分类-->
+<div class="dialog dialog-category b-shadow hidden" id="dialog-category">
+    <a class="close-btn" data-role="close">关闭<i class="iconfont icon-chahao"></i></a>
+    <div class="dialog-title" id="category-note">新增分类</div>
+    <div class="dialog-inner">
+        <form>
+            <label for="category-title">分类标题</label><br>
+            <input name="category-title" id="category-title" class="dialog-title">
+        </form>
+        <div class="dialog-submit">
+            <a class="confirm b-btn" data-role="confirm">确认</a>
+            <a class="cancel b-btn" data-role="close">取消</a>
+        </div>
+    </div>
+</div>
+
+<!--确认浮层-->
+<div class="dialog dialog-confirm b-shadow hidden" id="confirm">
+    <a class="close-btn" data-role="close">关闭<i class="iconfont icon-chahao"></i></a>
+    <div class="dialog-title" id="confirm-title"></div>
+    <div class="dialog-submit">
+        <a class="confirm  b-btn" data-role="confirm">确认</a>
+        <a class="cancel b-btn" data-role="close">取消</a>
+    </div>
+</div>
+<script src="http://s1.bdstatic.com/r/www/cache/ecom/esl/1-8-2/esl.js"></script>
+<script>
+    require.config({
+        'baseUrl': 'src',
+        'packages': [
+            {
+                'name': 'eform-emitter',
+                'location': '../dep/eform-emitter/0.3.1/src',
+                'main': 'emitter'
+            },
+            {
+                'name': 'eform-lang',
+                'location': '../dep/eform-lang/0.1.2/src',
+                'main': 'main'
+            },
+            {
+                'name': 'eform-dom',
+                'location': '../dep/eform-dom/0.0.1/src',
+                'main': 'main'
+            },
+            {
+                'name': 'etpl',
+                'location': '../dep/etpl/3.0.0/src',
+                'main': 'main'
+            },
+            {
+                'name': 'saber-lang',
+                'location': '../dep/saber-lang/2.0.0-beta.1/src',
+                'main': 'main'
+            },
+            {
+                'name': 'saber-storage',
+                'location': '../dep/saber-storage/2.0.0-beta.1/src',
+                'main': 'main'
+            }
+        ],
+        'urlArgs': '20150417',
+        'paths': {}
+    });
+</script>
+<script>
+    require(['index'], function (index) {
+        index.init();
+    });
+</script>
+</body>
+</html>
