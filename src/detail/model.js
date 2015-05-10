@@ -8,25 +8,34 @@ define(function (require) {
 
     var model = {};
 
-    var extend = require('eform-lang/extend');
+    var extend = require('../util/extend');
 
     var taskTool = require('../data/task');
 
-    var Emitter = require('eform-emitter');
+    var Emitter = require('../util/Emitter');
 
     // 只要将Emitter混入到对象中，对象就可以使用事件了,添加3个函数：on(绑定）,off（解绑）,emit（触发）
     Emitter.mixin(model);
 
     // 设置当前的任务
     model.setTask = function setTask(currentTaskId) {
-        var date = new Date();
-        model.isedit = !currentTaskId;
-        return model.task = currentTaskId && taskTool.item(currentTaskId) || {
-            id: '',
-            title: '无标题',
-            date: date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate(),
-            content: ''
-        };
+
+        if (!currentTaskId) {
+            model.isedit = true;
+            var date = new Date();
+            var year = date.getFullYear();
+            var month = date.getMonth() + 1;
+            var day = date.getDate();
+
+            return model.task = {
+                id: '',
+                title: '',
+                date: ('0000' + year).slice(-4) + '-' + ('00' + month).slice(-2) + '-' + ('00' + day).slice(-2),
+                content: ''
+            };
+        }
+        model.isedit = false;
+        return model.task = taskTool.item(currentTaskId);
     };
 
     // 设置是否正在编辑
@@ -64,22 +73,10 @@ define(function (require) {
         model.isedit = false;
     };
 
-    model.getTask = function (data) {
+    model.getTask = function () {
         return  model.task;
     };
 
     return model;
 
-//    return {
-//        getTask: function (currentTaskId) {
-//            return {
-//                id: currentTaskId
-//            };
-//        },
-//        updateTask: function (task) {
-//            //更新完毕，要返回是否发生变化
-//            return true;
-//        }
-//
-//    };
 });

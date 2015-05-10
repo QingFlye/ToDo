@@ -6,7 +6,7 @@
 
 define(function (require) {
 
-    var Emitter = require('eform-emitter');
+    var Emitter = require('../util/Emitter');
 
     var model = require('./model');
     var view = require('./view');
@@ -15,8 +15,6 @@ define(function (require) {
 
     // 只要将Emitter混入到对象中，对象就可以使用事件了,添加3个函数：on(绑定）,off（解绑）,emit（触发）
     Emitter.mixin(controller);
-
-    var confirmDialog = require('../dialog/confirm');
 
     // currentTaskTd:表示当前要显示的任务编号
     controller.init = function (currentTaskId) {

@@ -7,14 +7,14 @@
 @import "dialog";
 @import "font/iconfont.less";
 
-html, body {
-    overflow: hidden;
+html {
     height: 100%;
+    overflow: auto;
 }
 
-body {
-    min-height: 500px;
-    min-width: 980px;
+body{
+    position: relative;
+    height: 100%;
 }
 
 header {
@@ -23,7 +23,7 @@ header {
     font-size: 24px;
     line-height: 60px;
     text-indent: 2em;
-    background: url(img/header-bg.jpg) repeat-x;
+    background: url(img/header-bg.jpg) repeat-x #0089A5;
     -moz-box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
     -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);

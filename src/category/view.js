@@ -6,13 +6,12 @@
  */
 define(function (require) {
 
-    var Emitter = require('eform-emitter');
+    var Emitter = require('../util/Emitter');
 
     var etpl = require('etpl');
 
-    var bind = require('eform-dom/bind');
-    var parse = require('eform-dom/parse');
-    var classTool = require('eform-dom/class');
+    var bind = require('../util/bind');
+    var classTool = require('../util/class');
 
     var tpl = require('./category.tpl');
 

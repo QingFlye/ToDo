@@ -6,13 +6,13 @@
  */
 define(function (require) {
 
-    var each = require('eform-lang/each');
-    var indexOf = require('eform-lang/indexOf');
+    var each = require('../util/each');
+    var indexOf = require('../util/indexOf');
     var taskTool = require('../data/task');
 
     var model = {};
 
-    var Emitter = require('eform-emitter');
+    var Emitter = require('../util/Emitter');
 
     // 只要将Emitter混入到对象中，对象就可以使用事件了,添加3个函数：on(绑定）,off（解绑）,emit（触发）
     Emitter.mixin(model);

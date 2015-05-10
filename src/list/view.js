@@ -6,7 +6,7 @@
  */
 define(function (require) {
 
-    var Emitter = require('eform-emitter');
+    var Emitter = require('../util/Emitter');
 
     var etpl = require('etpl');
 
@@ -15,8 +15,8 @@ define(function (require) {
     // 在使用etpl之前，需要提前编译模板
     etpl.compile(tpl);
 
-    var bind = require('eform-dom/bind');
-    var classTool = require('eform-dom/class');
+    var bind = require('../util/bind');
+    var classTool = require('../util/class');
 
     // 这我们要实现三个功能
     // 1. 根据draw函数提供的参数，画一个页面

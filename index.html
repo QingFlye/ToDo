@@ -2,7 +2,7 @@
 <html lang="zh-cn">
 <head>
     <meta charset="utf-8">
-    <title>ife task之我的博客</title>
+    <title>青青flye</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <link rel="stylesheet" href="src/css/index.less"/>
@@ -45,6 +45,7 @@
         <form>
             <label for="category-title">分类标题</label><br>
             <input name="category-title" id="category-title" class="dialog-title">
+            <span class="error-msg" id="category-error"></span>
         </form>
         <div class="dialog-submit">
             <a class="confirm b-btn" data-role="confirm">确认</a>
@@ -68,33 +69,8 @@
         'baseUrl': 'src',
         'packages': [
             {
-                'name': 'eform-emitter',
-                'location': '../dep/eform-emitter/0.3.1/src',
-                'main': 'emitter'
-            },
-            {
-                'name': 'eform-lang',
-                'location': '../dep/eform-lang/0.1.2/src',
-                'main': 'main'
-            },
-            {
-                'name': 'eform-dom',
-                'location': '../dep/eform-dom/0.0.1/src',
-                'main': 'main'
-            },
-            {
                 'name': 'etpl',
                 'location': '../dep/etpl/3.0.0/src',
-                'main': 'main'
-            },
-            {
-                'name': 'saber-lang',
-                'location': '../dep/saber-lang/2.0.0-beta.1/src',
-                'main': 'main'
-            },
-            {
-                'name': 'saber-storage',
-                'location': '../dep/saber-storage/2.0.0-beta.1/src',
                 'main': 'main'
             }
         ],

@@ -6,7 +6,7 @@
  */
 define(function (require) {
 
-    var Emitter = require('eform-emitter');
+    var Emitter = require('../util/Emitter');
 
     var model = require('./model');
     var view = require('./view');

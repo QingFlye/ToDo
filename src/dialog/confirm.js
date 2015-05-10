@@ -7,9 +7,8 @@
 
 define(function (require) {
 
-    var bind = require('eform-dom/bind');
-    var parse = require('eform-dom/parse');
-    var classTool = require('eform-dom/class');
+    var bind = require('../util/bind');
+    var classTool = require('../util/class');
 
     var confirmNote = document.getElementById('confirm-title');
     var confirmDialog = document.getElementById('confirm');

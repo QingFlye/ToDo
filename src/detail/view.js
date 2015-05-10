@@ -6,7 +6,7 @@
 
 define(function (require) {
 
-    var Emitter = require('eform-emitter');
+    var Emitter = require('../util/Emitter');
 
     var etpl = require('etpl');
 
@@ -15,7 +15,7 @@ define(function (require) {
     // 在使用etpl之前，需要提前编译模板
     etpl.compile(tpl);
 
-    var bind = require('eform-dom/bind');
+    var bind = require('../util/bind');
 
     // 这我们要实现两个功能
     // 1. 根据draw函数提供的参数，画一个页面
@@ -34,7 +34,7 @@ define(function (require) {
     view.draw = function (task, isedit) {
 
         // 如果当前不是编辑状态，又没有任务，则清空
-        if (!task.id && !isedit) {
+        if (!task) {
             container.innerHTML = '';
             return;
         }
@@ -46,6 +46,7 @@ define(function (require) {
             title: task.title || '',
             finished: task.finished || false,
             date: task.date || '',
+            content: task.content || '',
             list: task.content && task.content.split(/\r?\n/) || []
         });
     };
@@ -69,7 +70,7 @@ define(function (require) {
     bind(container, 'click', function (e) {
         // 阻止默认事件
         e.preventDefault();
-        confirmDialog.show('完成的任务无法再次编辑，是否确认完成', function () {
+        confirmDialog.show('完成的任务无法再次编辑，是否确认', function () {
             view.emit('finish');
         });
     }, null, '[data-role=finish]');
@@ -87,7 +88,58 @@ define(function (require) {
     bind(container, 'click', function (e) {
         // 阻止默认事件
         e.preventDefault();
-        confirmDialog.show('是否确认更改任务', function () {
+
+        var title = document.getElementById('form-title').value || '';
+        var date = document.getElementById('form-date').value || '';
+        var content = document.getElementById('form-content').value || '';
+
+        var success = true;
+
+        // 标题
+        if (!title || title.length > 20) {
+            document.getElementById('form-title-error').innerHTML
+                = title ? '任务标题不能超过20字' : '任务标题必需输入';
+            success = false;
+        }
+        else {
+            document.getElementById('form-title-error').innerHTML = '';
+        }
+
+        // 日期
+        if (!date) {
+            document.getElementById('form-date-error').innerHTML
+                = '任务日期必须输入！';
+            success = false;
+        }
+        else if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) {
+            document.getElementById('form-date-error').innerHTML
+                = '任务日期的格式应当为yyyy-MM-dd！';
+            success = false;
+        }
+        else {
+            document.getElementById('form-date-error').innerHTML = '';
+        }
+
+        // 内容
+        if (!content) {
+            document.getElementById('form-content-error').innerHTML
+                = '任务内容必须输入！';
+            success = false;
+        }
+        else if (content.length > 1000) {
+            document.getElementById('form-content-error').innerHTML
+                = '任务内容不能超过1000字！';
+            success = false;
+        }
+        else {
+            document.getElementById('form-content-error').innerHTML = '';
+        }
+
+        if (!success) {
+            return;
+        }
+
+        confirmDialog.show('是否保存任务', function () {
             var title = document.getElementById('form-title').value || '';
             var date = document.getElementById('form-date').value || '';
             var content = document.getElementById('form-content').value || '';

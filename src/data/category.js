@@ -7,13 +7,13 @@
 
 define(function (require) {
 
-    var guid = require('eform-lang/guid');
-    var each = require('eform-lang/each');
-    var extend = require('eform-lang/extend');
-    var clone = require('eform-lang/clone');
-    var expando = require('eform-lang/expando');
+    var guid = require('../util/guid');
+    var each = require('../util/each');
+    var extend = require('../util/extend');
+    var clone = require('../util/clone');
+    var expando = require('../util/expando');
 
-    var Emitter = require('eform-emitter');
+    var Emitter = require('../util/Emitter');
 
     var categoryDal = {};
 

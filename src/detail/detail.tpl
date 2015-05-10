@@ -2,6 +2,7 @@
 <h1>
     <!-- if: ${isedit} -->
     <input placeholder="请输入任务名称" value="${title}" id="form-title">
+    <span class="form-error" id="form-title-error"></span>
     <!-- else -->
     ${title}
     <!-- /if-->
@@ -16,12 +17,15 @@
 <h2 class="b-shadow">
     <!-- if: ${isedit} -->
     <input placeholder="请输入任务日期" value="${date}" id="form-date">
+    <span class="form-error" id="form-date-error"></span>
     <!-- else -->
     任务日期：${date}
     <!-- /if-->
 </h2>
 <!-- if: ${isedit} -->
-<textarea placeholder="请输入任务详情" id="form-content"></textarea>
+<textarea placeholder="请输入任务详情" id="form-content">${content}</textarea>
+<br/>
+<span class="form-error" id="form-content-error"></span>
 <!-- else -->
 <section>
     <!-- for: ${list} as ${item} -->

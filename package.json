@@ -13,9 +13,6 @@
         "loaderAutoConfig": "js,htm,html,tpl,vm,phtml",
         "loaderUrl": "http://s1.bdstatic.com/r/www/cache/ecom/esl/1-8-2/esl.js",
         "dependencies": {
-            "eform-emitter": "~0.3.1",
-            "eform-lang": "~0.1.1",
-            "eform-dom": "~0.0.1",
             "etpl": "~3.0.0"
         }
     },

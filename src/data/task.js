@@ -8,13 +8,13 @@
 
 define(function (require) {
 
-    var guid = require('eform-lang/guid');
-    var each = require('eform-lang/each');
-    var clone = require('eform-lang/clone');
-    var expando = require('eform-lang/expando');
-    var extend = require('eform-lang/extend');
+    var guid = require('../util/guid');
+    var each = require('../util/each');
+    var clone = require('../util/clone');
+    var expando = require('../util/expando');
+    var extend = require('../util/extend');
 
-    var Emitter = require('eform-emitter');
+    var Emitter = require('../util/Emitter');
 
     var categoryDal = require('./category');
 

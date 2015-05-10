@@ -1,15 +1,18 @@
 /*右列详细*/
 article {
+    min-width: 500px;
+
     left: 482px;
     top: 62px;
     right: 0;
+
     h1 {
         height: 38px;
         padding-top: 10px;
         text-indent: 2em;
         font-weight: normal;
     }
-    input,textarea {
+    input, textarea {
         background: none repeat scroll 0 0 #fcfcfc;
         border: 1px solid #ccc;
         border-radius: 3px;
@@ -18,25 +21,32 @@ article {
         font-size: 16px;
         display: inline-block;
         height: 26px;
-        padding:0 10px;
+        padding: 0 10px;
         width: 280px;
     }
-    h2 ,section{
+    h2, section {
         font-size: 14px;
         font-weight: normal;
         padding: 10px 35px;
     }
-    textarea{
+    textarea {
         width: 760px;
         padding: 10px 35px;
         margin-left: 35px;
-        margin-top:10px;
+        margin-top: 10px;
         height: 400px;
     }
-    div .button{
-        width:100px;
+    div .button {
+        border: 1px solid #000000;
+        width: 100px;
         text-align: center;
-        margin-left:35px;
+        margin-left: 35px;
+        position: static;
     }
 
+    .form-error {
+        color: red;
+        margin-left: 30px;
+        font-size: 14px;
+    }
 }
