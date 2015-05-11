@@ -117,16 +117,15 @@ define(function (require) {
 
 
     // 用于修复DIV不支持drag的问题
-    function handleMouseMouve(e) {
-        var target = e.target;
+    if ('dragDrop' in container) {
+        bind(container, 'mousemove', function (e) {
+            var target = e.target;
 
-        if ('dragDrop' in target) {
-            target.dragDrop();
-        }
+            if ('dragDrop' in target) {
+                target.dragDrop();
+            }
+        }, 'dd');
     }
-
-    // 绑定drop事件
-    bind(container, 'mousemove', handleMouseMouve, 'dd');
 
     return view;
 });

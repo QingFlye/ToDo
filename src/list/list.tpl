@@ -1,4 +1,5 @@
 <!-- target: list -->
+
 <!-- var: date = null -->
 <!-- for: ${list} as ${item} -->
 <!-- if: ${date} !== ${item.date} -->

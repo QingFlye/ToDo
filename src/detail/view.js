@@ -17,40 +17,42 @@ define(function (require) {
 
     var bind = require('../util/bind');
 
-    // 这我们要实现两个功能
-    // 1. 根据draw函数提供的参数，画一个页面
-    // 2. 在用户点击按钮的时候，做出响应
-
     //首先我们要找到容器
     var container = document.getElementById('detail');
+    var confirmDialog = require('../dialog/confirm');
 
     // 然后声明view对象
-    var view = {};
+    var view = {
 
-    // 只要将Emitter混入到对象中，对象就可以使用事件了,添加3个函数：on(绑定）,off（解绑）,emit（触发）
-    Emitter.mixin(view);
+        // 绘制页面
+        draw: function (task, isedit, isnew) {
 
-    // 绘制一个任务
-    view.draw = function (task, isedit) {
+            // 是把任务设置为空，则清空
+            if (!task) {
+                container.innerHTML = '';
+                return;
+            }
 
-        // 如果当前不是编辑状态，又没有任务，则清空
-        if (!task) {
-            container.innerHTML = '';
-            return;
+            // 利用etpl的render方法绘制页面html
+            // 将HTML塞进页面中
+            container.innerHTML = etpl.render('task', {
+                isnew: isnew,
+                isedit: isedit,
+                title: task.title || '',
+                finished: task.finished || false,
+                date: task.date || '',
+                content: task.content || '',
+                list: task.content && task.content.split(/\r?\n/) || []
+            });
+        },
+
+        // 正在编辑中对话框
+        editConfirm: function (success) {
+            confirmDialog.show('当前正在编辑任务，是否放弃？', success);
         }
-
-        // 利用etpl的render方法绘制页面html
-        // 将HTML塞进页面中
-        container.innerHTML = etpl.render('task', {
-            isedit: isedit,
-            title: task.title || '',
-            finished: task.finished || false,
-            date: task.date || '',
-            content: task.content || '',
-            list: task.content && task.content.split(/\r?\n/) || []
-        });
     };
 
+    Emitter.mixin(view);
 
     // 给container委托编辑事件
     bind(container, 'click', function (e) {
@@ -59,12 +61,6 @@ define(function (require) {
         view.emit('edit');
     }, '[data-role=edit]');
 
-    var confirmDialog = require('../dialog/confirm');
-
-    // 正在编辑中对话框
-    view.editConfirm = function (success) {
-        confirmDialog.show('当前正在编辑任务，是否放弃？', success);
-    };
 
     // 给container委托完成事件
     bind(container, 'click', function (e) {

@@ -166,12 +166,11 @@ define(function (require) {
     };
 
     // 查询(哪个分类下的哪种状态的分类)
-    taskDal.query = function (categoryId, state, ordered) {
+    taskDal.query = function (categoryId, state, inclueChildren, ordered) {
 
         var list = [];
 
-        each(categoryId ? categoryMap[categoryId] : taskMap, function (id) {
-
+        function filter(id) {
             var task = tasks[taskMap[id]];
 
             // 处理任务是否完成的状态
@@ -180,7 +179,26 @@ define(function (require) {
             }
 
             list.push(clone(task));
-        });
+        }
+
+        // 不包含子分类或者查询全部分类
+        if (!inclueChildren || !categoryId) {
+            each(categoryId ? categoryMap[categoryId] : taskMap, filter);
+        }
+        else {
+            var category = categoryDal.item(categoryId);
+
+            // 是一个一级分类
+            if (category.parent === null) {
+                each(categoryMap[categoryId], filter);
+            }
+
+            var children = categoryDal.query(categoryId, false, false);
+
+            each(children, function (id) {
+                each(categoryMap[id], filter);
+            });
+        }
 
         if (ordered) {
             // 按日期倒序，日期如果相同，按id倒序
@@ -208,8 +226,6 @@ define(function (require) {
                 tasks[taskMap[task.id]].category = task.category = 'category0';
             })
         });
-
-        taskDal.emit('reload');
 
         build();
     });
