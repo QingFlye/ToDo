@@ -1,11 +1,12 @@
 /**
- * @title baidu ife task0003--todolist
+ * @file baidu ife task0003--todolist
  * @author 青青flye（QingFlye)
  * @email  2542229389@qq.com
  */
 
-define(function () {
+define(function (require) {
 
+    var matches = require('./matches');
 
     function returnFalse() {
         return false;
@@ -184,6 +185,8 @@ define(function () {
         props: mouseHooks.props.concat(('touches changedTouches').split(' '))
     };
 
+    var dragTarget = null;
+
     // 修正一个event
     function fix(event) {
         if (event.isMiniEvent) {
@@ -233,25 +236,16 @@ define(function () {
             newEvent.target = event.target.parent;
         }
 
+        // 修复drop的目标参数
+        if (type === 'drop') {
+            newEvent.dragTarget = dragTarget;
+        }
+
         return fixHook.filter ? fixHook.filter(newEvent, event) : newEvent;
     }
 
-    var whitespace = '[\\x20\\t\\r\\n\\f]';
-
-    var rattributeQuotes = new RegExp('=' + whitespace + '*([^\\]\'"]*?)' + whitespace + '*\\]', 'g');
-
-    var rtrim = new RegExp('^' + whitespace + '+|((?:^|[^\\\\])(?:\\\\.)*)' + whitespace + '+$', 'g');
-
-    var docElem = document.documentElement;
-
-    var nativeMatches = docElem.matches
-        || docElem.webkitMatchesSelector
-        || docElem.mozMatchesSelector
-        || docElem.oMatchesSelector
-        || docElem.msMatchesSelector;
-
-    // 绑定事件 TODO 这地方兼容到IE8，如果要到IE6这要改
-    function bind(elem, type, handler, data, selector) {
+    // 绑定事件
+    function bind(elem, type, handler, selector) {
 
         var fn = function (e) {
 
@@ -261,12 +255,9 @@ define(function () {
 
             if (selector) {
 
-                // 解决部分浏览器引号出错的问题
-                selector = selector.replace(rtrim, '$1').replace(rattributeQuotes, '=\'$1\']');
-
                 while (curTarget && curTarget !== elem && !e.isPropagationStopped()) {
 
-                    if (curTarget.nodeType === 1 && nativeMatches.call(curTarget, selector)) {
+                    if (curTarget.nodeType === 1 && matches(curTarget, selector)) {
                         handler.call(curTarget, e);
                     }
 
@@ -275,6 +266,11 @@ define(function () {
             }
             else {
                 handler.call(elem, e);
+            }
+
+            // 使用全局变量传递drag目标
+            if (e.dragTarget && /^(?:dragstart|dragend|drag)$/i.test(type)) {
+                dragTarget = e.dragTarget;
             }
         };
 

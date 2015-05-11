@@ -1,5 +1,5 @@
 /**
- * @title baidu ife task0003--todolist
+ * @file baidu ife task0003--todolist
  * @author 青青flye（QingFlye)
  * @email  2542229389@qq.com
  */
@@ -57,7 +57,7 @@ define(function (require) {
         // 阻止默认事件
         e.preventDefault();
         view.emit('edit');
-    }, null, '[data-role=edit]');
+    }, '[data-role=edit]');
 
     var confirmDialog = require('../dialog/confirm');
 
@@ -73,7 +73,7 @@ define(function (require) {
         confirmDialog.show('完成的任务无法再次编辑，是否确认', function () {
             view.emit('finish');
         });
-    }, null, '[data-role=finish]');
+    }, '[data-role=finish]');
 
     // 给container委托删除事件
     bind(container, 'click', function (e) {
@@ -82,7 +82,7 @@ define(function (require) {
         confirmDialog.show('删除的任务无法恢复，是否确认删除', function () {
             view.emit('delete');
         });
-    }, null, '[data-role=delete]');
+    }, '[data-role=delete]');
 
     // 给container委托确认事件
     bind(container, 'click', function (e) {
@@ -149,7 +149,7 @@ define(function (require) {
                 content: content
             });
         });
-    }, null, '[data-role=confirm]');
+    }, '[data-role=confirm]');
 
     // 给container委托取消事件
     bind(container, 'click', function (e) {
@@ -158,7 +158,7 @@ define(function (require) {
         confirmDialog.show('是否放弃当前输入的内容', function () {
             view.emit('cancel');
         });
-    }, null, '[data-role=cancel]');
+    }, '[data-role=cancel]');
 
     return view;
 });

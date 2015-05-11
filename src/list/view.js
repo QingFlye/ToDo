@@ -1,6 +1,6 @@
 /**
  * Created by qing on 15-5-5.
- * @title baidu ife task0003--todolist
+ * @file baidu ife task0003--todolist
  * @author 青青flye（QingFlye)
  * @email  2542229389@qq.com
  */
@@ -60,7 +60,7 @@ define(function (require) {
 
         view.emit('change', this.getAttribute('data-id'));
 
-    }, null, 'dd');
+    }, 'dd');
 
     // 绑定tab功能
     bind(document.getElementById('list-type'), 'click', function () {
@@ -84,12 +84,30 @@ define(function (require) {
 
         view.emit('type', this.getAttribute('data-role'));
 
-    }, null, 'span');
+    }, 'span');
 
     // 绑定添加按钮的事件
     bind(document.getElementById('list-add'), 'click', function () {
         view.emit('add');
     });
+
+
+    // 绑定DD的drag事件
+    bind(container, 'drag', function (e) {
+        e.dragTarget = this;
+    }, 'dd');
+
+    // 用于修复DIV不支持drag的问题
+    function handleMouseMouve(e) {
+        var target = e.target;
+
+        if ('dragDrop' in target) {
+            target.dragDrop();
+        }
+    }
+
+    // 绑定drop事件
+    bind(container, 'mousemove', handleMouseMouve, 'dd');
 
     return view;
 });

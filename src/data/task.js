@@ -1,6 +1,6 @@
 /**
  * @file task 任务信息的存储
- * @title baidu ife task0003--todolist
+ * @file baidu ife task0003--todolist
  * @author 青青flye（QingFlye)
  * @email  2542229389@qq.com
  */
@@ -120,6 +120,7 @@ define(function (require) {
         var id = taskId || task.id;
 
         var index = taskMap[id];
+        var old = tasks[index];
 
         // 2. 处理不替换的情况
         if (index == null) {
@@ -127,14 +128,14 @@ define(function (require) {
         }
         else {
             // 3. 处理替换的情况
-            task = extend(tasks[index], task);
+            task = tasks[index] = extend({}, old, task);
         }
 
         // 4. 重新编译索引
         build();
 
         // 5. 触发变更事件
-        taskDal.emit('update', task = clone(task));
+        taskDal.emit('update', task = clone(task), old);
 
         // 6. 返回任务对象
         return task;

@@ -6,8 +6,8 @@
 <!-- var: date = ${item.date} -->
 <!-- /if-->
 <!-- if: ${item.id} === ${current} -->
-<dd data-id="${item.id}" class="active">${item.title}</dd>
+<dd draggable="true" data-id="${item.id}" class="active">${item.title}</dd>
 <!-- else -->
-<dd data-id="${item.id}">${item.title}</dd>
+<dd draggable="true" data-id="${item.id}">${item.title}</dd>
 <!-- /if-->
 <!-- /for -->

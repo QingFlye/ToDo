@@ -1,5 +1,5 @@
 /**
- * @title baidu ife task0003--todolist
+ * @file baidu ife task0003--todolist
  * @author 青青flye（QingFlye)
  * @email  2542229389@qq.com
  */
@@ -47,31 +47,17 @@ define(function (require) {
             this._events = {};
         }
 
-        if (!this._events[type]) {
-            this._events[type] = [];
-        }
+        var me = this;
 
-        this._events[type].push(listener);
+        type.replace(/\S+/g, function (type) {
 
-        return this;
-    };
+            if (!me._events[type]) {
+                me._events[type] = [];
+            }
 
-    // 绑定一次
-    Emitter.prototype.once = function (type, listener) {
+            me._events[type].push(listener);
+        });
 
-        if (typeof listener !== 'function') {
-            throw new TypeError('listener must be a function');
-        }
-
-        var self = this;
-
-        function g() {
-            self.off(type, g);
-            listener.apply(this, arguments);
-        }
-
-        g.listener = listener;
-        this.on(type, g);
         return this;
     };
 

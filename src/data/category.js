@@ -1,6 +1,6 @@
 /**
  * @file category 分类信息存储
- * @title baidu ife task0003--todolist
+ * @file baidu ife task0003--todolist
  * @author 青青flye（QingFlye)
  * @email  2542229389@qq.com
  */
@@ -127,6 +127,7 @@ define(function (require) {
         categoryId = categoryId || category.id;
 
         var index = categoryMap[categoryId];
+        var old = categories[index];
 
         // 2. 处理不替换的情况
         if (index == null) {
@@ -134,14 +135,20 @@ define(function (require) {
         }
         else {
             // 3. 处理替换的情况
-            category = extend(categories[index], category);
+            category = categories[index] = extend({}, old, category);
         }
 
         // 4. 重新编译索引
         build();
 
         // 5. 触发变更事件
-        categoryDal.emit('update', category = clone(category));
+        if (index == null) {
+            categoryDal.emit('add', category = clone(category));
+
+        }
+        else {
+            categoryDal.emit('update', category = clone(category), old);
+        }
 
         // 6. 返回分类对象
         return category;
@@ -179,7 +186,7 @@ define(function (require) {
         // 6. 重新编译索引
         build();
 
-        // 7. 依次触发删除事件
+        // 7. 触发删除事件
         categoryDal.emit('remove', items);
 
         // 6. 返回删除的分类对象
@@ -216,8 +223,8 @@ define(function (require) {
             // 首先使用order属性倒序，order相同时使用id倒序
             list.sort(function (a, b) {
                 var order = b.order - a.order;
-                var aid = +a.id.slice('11');
-                var bid = +b.id.slice('11');
+                var aid = +a.id.slice(11);
+                var bid = +b.id.slice(11);
                 return order ? order : bid - aid;
             });
         }

@@ -1,6 +1,6 @@
 /**
  * @file confirm 分类添加或者修改对话框
- * @title baidu ife task0003--todolist
+ * @file baidu ife task0003--todolist
  * @author 青青flye（QingFlye)
  * @email  2542229389@qq.com
  */
@@ -35,14 +35,14 @@ define(function (require) {
     bind(confirmDialog, 'click', function (e) {
         e.preventDefault();
         confirm.hide();
-    }, null, '[data-role=close]');
+    }, '[data-role=close]');
 
     // 绑定确认按钮
     bind(confirmDialog, 'click', function (e) {
         e.preventDefault();
         confirm.hide();
         successCallback && successCallback();
-    }, null, '[data-role=confirm]');
+    }, '[data-role=confirm]');
 
     return confirm;
 });

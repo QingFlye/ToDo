@@ -1,6 +1,6 @@
 /**
  * @file category 分类添加或者修改对话框
- * @title baidu ife task0003--todolist
+ * @file baidu ife task0003--todolist
  * @author 青青flye（QingFlye)
  * @email  2542229389@qq.com
  */
@@ -46,7 +46,7 @@ define(function (require) {
     bind(categoryDialog, 'click', function (e) {
         e.preventDefault();
         category.hide();
-    }, null, '[data-role=close]');
+    }, '[data-role=close]');
 
     // 绑定确认按钮
     bind(categoryDialog, 'click', function (e) {
@@ -67,14 +67,14 @@ define(function (require) {
 
         category.hide();
         successCallback && successCallback(categoryTitle.value);
-    }, null, '[data-role=confirm]');
+    }, '[data-role=confirm]');
 
     // 绑定表单的提交事件
-    bind(categoryDialog, 'submit', function (e) {
+    bind(categoryDialog.getElementsByTagName('form')[0], 'submit', function (e) {
         e.preventDefault();
         category.hide();
         successCallback && successCallback(categoryTitle.value);
-    }, null, 'form');
+    });
 
     return category;
 });
