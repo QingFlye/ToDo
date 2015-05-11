@@ -188,16 +188,16 @@ define(function (require) {
         else {
             var category = categoryDal.item(categoryId);
 
+            each(categoryMap[categoryId], filter);
+
             // 是一个一级分类
             if (category.parent === null) {
-                each(categoryMap[categoryId], filter);
+                var children = categoryDal.query(categoryId, false, false);
+
+                each(children, function (_, category) {
+                    each(categoryMap[category.id], filter);
+                });
             }
-
-            var children = categoryDal.query(categoryId, false, false);
-
-            each(children, function (id) {
-                each(categoryMap[id], filter);
-            });
         }
 
         if (ordered) {
