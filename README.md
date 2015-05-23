@@ -9,7 +9,7 @@
 * [JavaScript构造函数学习笔记](http://www.cnblogs.com/QingFlye/p/4483842.html)
 * [JavaScript面向对象编程学习笔记](http://www.cnblogs.com/QingFlye/p/4486279.html)
 
-继续努力~~~
+非常感谢ife提供的详细学习资料，知识太多了，哈哈，继续努力~~~
 
 <p style="color:red">正在建设中~~~</a>
 
